@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<scenario>
+<robot name="Robot" fixed="false" self_collisions="false">
+    <base_link name="Base" type="sphere" physics="surface">
+        <dimensions radius="0.2"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <material name="Steel"/>
+        <look name="Green"/>
+    </base_link>
+
+    <world_transform xyz="0.0 0.0 -2.0" rpy="0.0 0.0 0.0"/>
+</robot>
+</scenario>
+
+<!-- <?xml version="1.0"?>
+<scenario>
+
+	<robot name="$(arg vehicle_name)" fixed="false" self_collisions="false">
+		<base_link name="base_link" type="compound" physics="submerged">
+			 <external_part name="Structure" type="model" physics="submerged" buoyant="false">
+			 	<physical>
+					<mesh filename="narval/narval_base_phy.obj" scale="1"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+					<thickness value="0.005"/>
+				</physical>
+				<visual>
+					<mesh filename="narval/simplify_narval_base.obj" scale="1"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<!-- <material name="Aluminium"/> -->
+				<!-- <compound_transform rpy="0 0.0 0.0" xyz="-0.0 0.0 0.0"/> -->
+				<!-- <look name="blue" /> -->
+			 </external_part>
+			
+			 <!-- <internal_part name="BackLeft" type="box" physics="submerged" buoyant="true">
+				<dimensions xyz="0.2 0.15 0.091"/>
+				<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+				<material name="Neutral"/>
+				<look name="None"/>
+				<mass value="0.025"/>
+				<compound_transform rpy="0.0 0.0 0.0" xyz="-0.1 -0.1 0.0"/>
+			</internal_part> -->
+				
+		</base_link>
+		
+		<world_transform xyz="$(arg position)" rpy="$(arg orientation)"/>
+
+		<ros_subscriber thrusters="/$(arg vehicle_name)/setpoint/pwm"/>
+
+	</robot>
+</scenario> -->
+
+
