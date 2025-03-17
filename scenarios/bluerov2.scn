@@ -141,7 +141,7 @@
 		<actuator name="FrontRight" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="0.1355 0.1 0.0725" rpy="0 0 -0.7853981634"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="true" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="true" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -158,7 +158,7 @@
 		<actuator name="FrontLeft" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="0.1355 -0.1 0.0725" rpy="0 0 0.7853981634"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="true" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="true" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -175,7 +175,7 @@
 		<actuator name="BackRight" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="-0.1475 0.1 0.0725" rpy="0 0 -2.3561944902"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="false" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="false" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -192,7 +192,7 @@
 		<actuator name="BackLeft" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="-0.1475 -0.1 0.0725" rpy="0 0 2.3561944902"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="false" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="false" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -209,7 +209,7 @@
 		<actuator name="DiveFrontRight" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="0.12 0.218 0.0" rpy="0 -1.5707963268 0"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="false" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="false" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -226,7 +226,7 @@
 		<actuator name="DiveFrontLeft" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="0.12 -0.218 0.0" rpy="0 -1.5707963268 0"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="true" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="true" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -243,7 +243,7 @@
 		<actuator name="DiveBackRight" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="-0.12 0.218 0.0" rpy="0 -1.5707963268 0"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="true" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="true" normalized_setpoint="true" max_setpoint="411.653357"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -260,7 +260,7 @@
 		<actuator name="DiveBackLeft" type="thruster">
 			<link name="base_link"/>
 			<origin xyz="-0.12 -0.218 0.0" rpy="0 -1.5707963268 0"/>
-			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3250.0" inverted="false" max_setpoint="500"/>
+			<specs thrust_coeff="0.167" torque_coeff="0.016" max_rpm="3931.0" inverted="false" max_setpoint="411.653357" normalized_setpoint="true"/>
 			<rotor_dynamics type="zero_order"/>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff  forward="0.167" reverse="0.167"/>
@@ -397,7 +397,7 @@
 
 		<world_transform xyz="$(arg position)" rpy="$(arg orientation)"/>
 		
-		<ros_subscriber thrusters="/stonefish_rpm"/>
-		<!-- <ros_publisher thrusters="/$(arg vehicle_name)/thruster_state"/> -->
+		<ros_subscriber thrusters="/thrusters/STONEFISH"/>
+		<ros_publisher thrusters="/$(arg vehicle_name)/thruster_state"/>
 	</robot>
 </scenario>
