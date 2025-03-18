@@ -17,7 +17,7 @@ def generate_launch_description():
 
         # Define default configuration paths
     default_config_path = PathJoinSubstitution([stonefish_share, 'config', 'params.yaml'])
-    default_rviz_config_path = PathJoinSubstitution([stonefish_share, 'rviz', 'tank_bluerov2.rviz'])
+    default_rviz_config_path = PathJoinSubstitution([stonefish_share, 'rviz', 'tank_bluerov2_imu.rviz'])
 
         # Launch arguments
     config_arg = DeclareLaunchArgument(
@@ -50,6 +50,12 @@ def generate_launch_description():
         launch_arguments={
             "config": LaunchConfiguration('config')
         }.items()
+    )
+
+    tf_imu = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/imu_filter"]
     )
 
     rviz_node = Node(
@@ -85,5 +91,6 @@ def generate_launch_description():
         thruster_manager_node,
         description_timer,
         wrench_system_launch,
-        rviz_timer
+        rviz_timer,
+        tf_imu
     ])
