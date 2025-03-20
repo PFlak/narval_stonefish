@@ -16,7 +16,7 @@ def generate_launch_description():
     wrench_system_share = FindPackageShare('narval_wrench_system')
 
         # Define default configuration paths
-    default_config_path = PathJoinSubstitution([stonefish_share, 'config', 'params.yaml'])
+    default_config_path = PathJoinSubstitution([stonefish_share, 'config', 'windturbine_bluerov2.yaml'])
     default_rviz_config_path = PathJoinSubstitution([stonefish_share, 'rviz', 'tank_bluerov2_imu.rviz'])
 
         # Launch arguments
@@ -71,7 +71,7 @@ def generate_launch_description():
                                       '/launch/stonefish_simulator.launch.py'),
         launch_arguments={
             'simulation_data': get_package_share_directory('narval_stonefish')+'/data/',
-            'scenario_desc': get_package_share_directory('narval_stonefish')+'/scenarios/windturbine.scn',
+            'scenario_desc': get_package_share_directory('narval_stonefish')+'/scenarios/windturbine_bluerov2.scn',
             'simulation_rate': '30.0',
             'window_res_x': '1720',
             'window_res_y': '980',
