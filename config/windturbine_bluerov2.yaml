@@ -63,9 +63,9 @@ n_wrench_system_base:
     # Maximum force that can be applied by the controller
     # If given force is higher than calculated by thruster manager, it will be clipped
     max_force: 25.0 # kg f
-    max_torque: 5.0 # Nm
+    max_torque: 2.0 # Nm
 
-    equalization_type: "cube"
+    equalization_type: "square"
 
     ds4_force_x: axis_left_y
     ds4_force_y: axis_left_x
