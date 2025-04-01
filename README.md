@@ -30,6 +30,11 @@ wreckage_bluerov2.launch.py
 
 Map of wreckage prepared for exhibition
 
+![Map](./docs/images/Screenshot%20from%202025-04-01%2010-11-50.png)
+
+![rviz](./docs/images/Screenshot%20from%202025-04-01%2010-15-25.png)
+
+
 - launches `bluerov2` robot description
 - subcribes to `ds4` controller
 - launches `narval_thruster_manager` node
