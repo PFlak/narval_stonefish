@@ -2,7 +2,9 @@
 <scenario>
     <environment>
         <ned latitude="41.7777" longitude="3.0333"/>
-        <ocean />
+        <ocean >
+			<waves height="0.0"/>
+		</ocean>
         <atmosphere>
             <sun azimuth="20.0" elevation="50.0"/>
         </atmosphere>
@@ -37,26 +39,57 @@
     <looks>
 		<look name="tank" rgb="0.9 0.9 0.9" roughness="0.9"/>
         <look name="model" gray="1.0" roughness="0.5" texture="wreckage/model_texture.jpg"/>
+		<look name="coral" gray="1.0" roughness="0.5" texture="coral/model_texture.jpg"/>
+		<look name="seabed" gray="1.0" roughness="0.5" texture="seabed/model_texture.jpg"/>
     </looks>
 
     <static name="Wreckage" type="model">
         <physical>
             <mesh filename="wreckage/model_phy.obj" scale="1"/>
-            <origin rpy="3.14 0.0 0.0" xyz="0.0 0.0 10.0"/>
+            <origin rpy="3.14 0.0 3.14" xyz="0.0 0.0 -4.0"/>
         </physical>
         <visual>
             <mesh filename="wreckage/model.obj" scale="1"/>
-            <origin rpy="3.14 0.0 0.0" xyz="0.0 0.0 10.0"/>
+            <origin rpy="3.14 0.0 3.14" xyz="0.0 0.0 -4.0"/>
         </visual>
         <material name="grade_S355_steel"/>
         <look name="model"/>
-        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 5.0"/>
+        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 -16.0 25.0"/>
     </static>
 
-    	<include file="$(find narval_stonefish)/scenarios/bluerov2.scn">
+	<!-- if your resources are too weak - comment out Coral -->
+	<!-- <static name="Coral" type="model">
+		<physical>
+			<mesh filename="coral/model_phy.obj" scale="0.4"/>
+			<origin rpy="1.6 0.0 3.14" xyz="0.0 0.0 -0.5"/>
+		</physical>
+		<visual>
+			<mesh filename="coral/model_low.obj" scale="0.4"/>
+			<origin rpy="1.6 0.0 3.14" xyz="0.0 0.0 -0.5"/>
+		</visual>
+		<material name="Rock"/>
+		<look name="coral"/>
+		<world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 25.0"/>
+	</static> -->
+
+	<static name="Seabed" type="model">
+		<physical>
+			<mesh filename="seabed/model_phy.obj" scale="1"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -12.0"/>
+		</physical>
+		<visual>
+			<mesh filename="seabed/model_01.obj" scale="1"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -12.0"/>
+		</visual>
+		<material name="Rock"/>
+		<look name="seabed"/>
+		<world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 25.0"/>
+	</static>
+
+    <include file="$(find narval_stonefish)/scenarios/bluerov2.scn">
 		<arg name="vehicle_name" value="bluerov2"/>
-		<arg name="position" value="0.0 0.0 2.0"/>
-		<arg name="orientation" value="0.0 0.0 0.0"/>
+		<arg name="position" value="-9.0 -1.0 19.5"/>
+		<arg name="orientation" value="0.0 0.0 1.2"/>
 	</include>
 
 </scenario>
