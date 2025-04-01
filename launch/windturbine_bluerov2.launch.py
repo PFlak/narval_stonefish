@@ -58,6 +58,12 @@ def generate_launch_description():
         arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/imu_filter"]
     )
 
+    tf_multibeam = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/multibeam"]
+    )
+
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -92,5 +98,6 @@ def generate_launch_description():
         description_timer,
         wrench_system_launch,
         rviz_timer,
-        tf_imu
+        tf_imu,
+        tf_multibeam
     ])

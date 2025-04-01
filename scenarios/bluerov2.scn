@@ -3,6 +3,7 @@
 	<looks>
 		<look name="br2" gray="1.0" roughness="0.4" metalness="0.5" texture="bluerov2/br2.png"/>
 		<look name="blue" rgb="0.0 0.5 1.0" roughness="0.3"/>
+		<look name="black" rgb="0.0 0.0 0.0" roughness="0.3"/>
 	</looks>
 
 	<robot name="$(arg vehicle_name)" fixed="false" self_collisions="false">
@@ -273,6 +274,20 @@
 			</propeller>
 		</actuator>
 
+		<light name="FrontLightRight">
+			<link name="base_link"/>
+			<origin xyz="0.176 0.14 0.116" rpy="0.0 1.5 0.0"/>
+			<specs illuminance="100.0" radius="0.015" cone_angle="70.0"/>
+			<color rgb="255.0 255.0 255.0"/>
+		</light>
+
+		<light name="FrontLightLeft">
+			<link name="base_link"/>
+			<origin xyz="0.176 -0.14 0.116" rpy="0.0 1.5 0.0"/>
+			<specs illuminance="100.0" radius="0.015" cone_angle="70.0"/>
+			<color rgb="255.0 255.0 255.0"/>
+		</light>
+
 		<!-- <sensor name="odometry" type="odometry" rate="100.0">
 			<noise position="0.05" velocity="0.01" angle="0.1" angular_velocity="0.05"/>
 			<link name="base_link"/>
@@ -280,14 +295,14 @@
 			<ros_publisher topic="/$(arg vehicle_name)/odometry"/>
 		</sensor> -->
 
-		<sensor name="INS" rate="100.0" type="ins">
+		<!-- <sensor name="INS" rate="100.0" type="ins">
 			<output_frame rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			<noise angular_velocity="0.00001745" linear_acceleration="0.00005"/>
 			<external_sensors dvl="dvl" gps="gps" pressure="pressure"/>
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			<link name="base_link"/>
 			<ros_publisher topic="/$(arg vehicle_name)/INS"/>
-		</sensor>
+		</sensor> -->
 
 		<sensor name="pressure" type="pressure" rate="30.0">
 			<link name="base_link"/>
@@ -303,14 +318,14 @@
 			<ros_publisher topic="/$(arg vehicle_name)/imu"/>
 		</sensor>
 
-		<sensor name="gps" type="gps" rate="1.0">
+		<!-- <sensor name="gps" type="gps" rate="1.0">
 			<link name="base_link"/>
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.15"/>
 			<noise ned_position="0.5"/>
 			<ros_publisher topic="/$(arg vehicle_name)/gps"/>
-		</sensor>
+		</sensor> -->
 
-		<sensor name="dvl" type="dvl" rate="5.0">
+		<!-- <sensor name="dvl" type="dvl" rate="5.0">
 			<link name="base_link"/>
 			<origin rpy="3.1416 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			<specs beam_angle="30.0"/>
@@ -318,7 +333,7 @@
 			<noise velocity="0.0015" altitude="0.001"/>
 			<ros_publisher topic="/$(arg vehicle_name)/dvl_sim" 
 						   altitude_topic="/$(arg vehicle_name)/altitude"/>
-		</sensor>
+		</sensor> -->
 
 		<!-- <sensor name="camera_front" type="camera" rate="10.0">
 			<link name="base_link"/>
@@ -355,7 +370,7 @@
 			<ros_publisher topic="/bluerov2/right"/>
 		</sensor>
 
-		<!-- <sensor name="multibeam" rate="1.0" type="multibeam">
+		<sensor name="multibeam" rate="1.0" type="multibeam">
 			<specs fov="90.0" steps="128"/>
 			<range distance_min="0.5" distance_max="50.0"/>
 			<noise distance="0.1"/>
@@ -363,17 +378,17 @@
 			<origin xyz="0.0 0.0 0.3" rpy="0.0 -1.571 0.0"/>
 			<link name="base_link"/>
 			<ros_publisher topic="/$(arg vehicle_name)/multibeam"/>
-		</sensor> -->
+		</sensor>
 
-		<!-- <sensor name="fls" type="fls">
+		<sensor name="fls" type="fls">
 			<specs beams="256" bins="120" horizontal_fov="90.0" vertical_fov="30.0"/>
-			<settings range_min="0.5" range_max="15.0" gain="1.1"/>
+			<settings range_min="0.5" range_max="25.0" gain="1.0"/>
 			<noise multiplicative="0.02" additive="0.05"/>
 			<display colormap="hot"/>
 			<origin xyz="0.0 0.0 0.3" rpy="1.047 0.0 1.571"/>
 			<link name="base_link"/>
 			<ros_publisher topic="/$(arg vehicle_name)/fls"/>
-		</sensor> -->
+		</sensor>
 
 		<!-- <sensor name="SSS" type="sss">
 			<specs bins="500" lines="400" horizontal_beam_width="1.0" vertical_beam_width="50.0" vertical_tilt="30.0"/>
