@@ -16,7 +16,7 @@ def generate_launch_description():
     wrench_system_share = FindPackageShare('narval_wrench_system')
 
         # Define default configuration paths
-    default_config_path = PathJoinSubstitution([stonefish_share, 'config', 'windturbine_bluerov2.yaml'])
+    default_config_path = PathJoinSubstitution([stonefish_share, 'config', 'wreckage_bluerov2.yaml'])
     default_rviz_config_path = PathJoinSubstitution([stonefish_share, 'rviz', 'tank_bluerov2_imu.rviz'])
 
         # Launch arguments
@@ -58,6 +58,18 @@ def generate_launch_description():
         arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/imu_filter"]
     )
 
+    tf_multibeam = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/multibeam"]
+    )
+
+    tf_multibeam = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0", "0", "0", "0", "0", "0", "base_link", "bluerov2/fls"]
+    )
+
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -75,7 +87,7 @@ def generate_launch_description():
             'simulation_rate': '30.0',
             'window_res_x': '1720',
             'window_res_y': '980',
-            'rendering_quality': 'medium',
+            'rendering_quality': 'low',
         }.items()
     )
 
@@ -92,5 +104,6 @@ def generate_launch_description():
         description_timer,
         wrench_system_launch,
         rviz_timer,
-        tf_imu
+        tf_imu,
+        tf_multibeam
     ])
