@@ -24,6 +24,7 @@ setup(
         (os.path.join('share', package_name, 'scenarios'), glob(os.path.join('scenarios','*.scn*'))),
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.yaml*'))),
         (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*.rviz*'))),
+        (os.path.join('share', package_name, 'nodes'), glob(os.path.join('nodes', '*node.py*'))),
         *data_files_list
     ],
     install_requires=["setuptools"],
@@ -34,6 +35,8 @@ setup(
     license="Apache-2.0",
     tests_require=["pytest"],
     entry_points={
-        "console_scripts": [],
+        "console_scripts": [
+            "dvl_pose_translation = nodes.dvl_pose_translation_node:main"
+        ],
     },
 )
